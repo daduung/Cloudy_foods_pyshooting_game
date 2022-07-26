@@ -47,24 +47,6 @@ class Fighter(pygame.sprite.Sprite):
         for sprite in sprites :
             if pygame.sprite.collide_rect(self, sprite):
                 return sprite
-# # 보스 만들기
-# class Boss(pygame.sprite.Sprite):
-#     def __init__(self):
-#         super(Boss, self).__init__()
-#         self.image = pygame.image.load('machine.png')
-#         self.rect= self.image.get_rect()
-#         self.rect.x= int(WINDOW_WIDTH / 3)
-#         self.rect.y= 0
-    
-#     def draw(self, screen):
-#         screen.blit(self.image, self.rect) 
-        
-#     # 충돌    
-#     def collide(self, sprites) :
-#         for sprite in sprites :
-#             if pygame.sprite.collide_rect(self, sprite):
-#                 return sprite
-      
 
 # 미사일 만들기
 class Missile(pygame.sprite.Sprite):
@@ -361,7 +343,7 @@ def game_loop() :
             life = pygame.image.load('life.png')
             screen.blit(life, life.get_rect())
         
-        # 3번 운석이 떨어지면 게임 끝나도록 설정 (목숭3개)
+        # 3번 운석이 떨어지면 게임 끝나도록 설정 (목숨3개)
         if fighter.collide(rocks) or count_missed >= 3:
             pygame.mixer_music.stop()
             occur_explosion(screen, fighter.rect.x, fighter.rect.y)
